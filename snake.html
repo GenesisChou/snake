@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #snake {
+            border: 1px solid black;
+        }
+        
+        #score {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id='snake'></canvas>
+    <br>
+    <button onclick='startGame()'>start</button>
+    <button onclick='stopGame()'>stop</button>
+    <h1 id='score'>0</h1>
+    <script src='snake.js'></script>
+    <script>
+        let dashboard = document.getElementById('score'),
+            game = new Game({
+                target: document.getElementById('snake'),
+                width: 1100,
+                height: 500,
+                start: function () {
+                    console.log('game start');
+                },
+                stop: function (score) {
+                    alert('game score:' + game.score);
+                },
+                scoreChange: function (score) {
+                    dashboard.innerHTML = score;
+                },
+                snake: {
+                    color: '#66ccff',
+                },
+                dot: {
+                    color: '#e4393c',
+                }
+            });
+        function startGame() {
+            game.start();
+        }
+        function stopGame() {
+            game.stop();
+        }
+    </script>
+</body>
+
+</html>
