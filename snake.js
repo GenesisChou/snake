@@ -7,7 +7,6 @@ class Game {
         this.cvs.width = this.width;
         this.cvs.height = this.height;
         this.ctx = this.cvs.getContext('2d');
-        this.init();
      }
     init() {
         this.snake = new Snake(20, this.width, this.height, this.option.snake.color, this.option.snake.speed);
